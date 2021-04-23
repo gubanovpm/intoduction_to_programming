@@ -8,6 +8,7 @@ void print_board(int **board, int N);
 
 int main() {
 	
+	printf("Enter the board size: ");
 	int N = 0;
 	scanf("%d", &N);
 	int **board = (int **)malloc(N * sizeof(int *));
