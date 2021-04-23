@@ -29,7 +29,9 @@ unsigned long long main() {
 	board[i][j] = 1;
 	
 	knight_turn(board, N, M, i, j, 2);
-
+	for (int i = 0; i < N; i++)
+		free(board[i]);
+	free(board);
 	return 0;
 
 }
