@@ -29,9 +29,6 @@ unsigned long long main() {
 	board[i][j] = 1;
 	
 	knight_turn(board, N, M, i, j, 2);
-	for (int i = 0; i < N; i++)
-		free(board[i]);
-	free(board);
 	return 0;
 
 }
@@ -48,6 +45,9 @@ void knight_turn(int **board, int N, int M, int i, int j, int d) {
 			board[y][x] = d;
 			if (d == N * M) {
 				print_board(board, N, M);
+				for (int i = 0; i < N; i++)
+					free(board[i]);
+				free(board);
 				exit(0);
 			}
 			knight_turn(board, N, M, y, x, d + 1);
