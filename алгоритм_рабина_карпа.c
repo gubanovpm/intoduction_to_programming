@@ -20,9 +20,12 @@ int main() {
 	
 	char sub[256] = {'\0'} ;								// объявление подстроки
 	printf("Enter the substring you are looking for:\n");	// считаем искомую подстроку
-	scanf("%s", sub);
+	int k = 0;
+	while ((sub[k++] = getc(stdin)) != '\n')
+		;
 	int n = strlen(sub);									// n - длина введенной подстроки
-	
+	sub[n - 1] = '\0';
+	n--;
 	char *tmp = (char *)calloc(n + 1, sizeof(char));			// выдкление памяти для временной строки, используемой потом для сравнеия
 	for (int i = 0 ; i < n ; i++)						// перепишем первое значение
 		tmp[i] = text[i];
