@@ -23,8 +23,8 @@ int main() {
 	scanf("%s", sub);
 	int n = strlen(sub);									// n - длина введенной подстроки
 	
-	char *tmp = (char *)malloc(sizeof(char) * n);			// выдкление памяти для временной строки, используемой потом для сравнеия
-	for (int i = 0 ; i < n ; i++)							// перепишем первое значение
+	char *tmp = (char *)calloc(n + 1, sizeof(char));			// выдкление памяти для временной строки, используемой потом для сравнеия
+	for (int i = 0 ; i < n ; i++)						// перепишем первое значение
 		tmp[i] = text[i];
 	long long int hsub = circle_hash(sub, n);				// посчитаем хеш искомой подстроки
 	long long int hs = circle_hash(tmp, n);					// посчитаем хеш того что во временной tmp строке
